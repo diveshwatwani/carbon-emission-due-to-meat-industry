@@ -22,7 +22,8 @@
             .navbar-nav .nav-item.active .nav-link,
             .navbar-nav .nav-item:hover .nav-link {
             color: #ABC441;
-            }            
+            }   
+
             
         </style>
     </head>
@@ -66,54 +67,23 @@
             </nav>
         </section>
         <!-- #################### MAIN PAGE ########################## -->
-        <section style="background-color: #CDD67E;" class="mainPage pt-2 mt-2 pb-5 mb-5">
-            <!-- <div class="container text-center">
-                <div>
-                    <div>
-                        <img src="{% static 'imgs/try3.png'%}" alt="">
-                    </div>
-                    <div class="container row">
-                        
-                            <div class="col-lg-4 pt-5 img_page">
-                                
-                                <img src="{% static 'imgs/Conservation_final.png' %}" alt="" srcset="">
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mr-5 p-3 text-cenetr container container-ds" >
-                                    
-                                        <form  action="{% url 'visualize' %}">
-                                            {% csrf_token %}
-                                        <h2 style="color: #705555;" class="text-center">Carbon Prediction</h2>
-                                            <label class="textLabel" for="start_date">Enter Start Date:</label><br>
-                                            <input class="dateInput" style="color: #705555;font-weight: bolder;" type="date" id="start_date" name="start_date"><br>
-            
-                                            <label class="textLabel" for="end_date">Enter End Date:</label><br>
-                                            <input class="dateInput" style="color: #705555;font-weight: bolder;" type="date" id="end_date" name="end_date"><br><br>
-                                            <div class="text-cenetr">
-                                                <button style="background-color: #705555;color: aliceblue;" type="submit" class="btn text-center">Get Predictions</button>
-                                            </div>
-                                        </form>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div> -->
+        <section  class="mainPage pt-3 mt-2 pb-5 mb-5">
             <div style="background-color: #CDD67E;" class="container">
                 <div>
                     <div class="row">
                         
                             <div class="col-lg-8 pt-5">
-                                <img width="30%" src="{% static 'imgs/logoProphet.png'%}" alt="" srcset="">
-                                <b><h2 class="pt-4 pb-3" style="font-family: 'Josefin Sans', sans-serif; font-size: 3rem;color:white;">Forecasting at Scale.</h2></b>
-                                <p class="pt-1 pb-4" style="font-size: 1.1rem;line-height: 23pt; color: white;">Prophet is a forecasting procedure implemented in R and Python. It is fast and provies completed automated 
+                                <img width="30%" class="pl-4 pb-3" src="{% static 'imgs/logoProphet.png'%}" alt="" srcset="">
+                                <b><h2 class="pt-4 pl-4 pb-3" style="font-family: 'Josefin Sans', sans-serif; font-size: 3rem;color:#705555;">Forecasting at Scale.</h2></b>
+                                <p class="pt-1 pl-4 pb-4" style="font-size: 1.1rem;line-height: 23pt; color: #705555;">Prophet is a forecasting procedure implemented in R and Python. It is fast and provies completed automated 
                                     forecasts that can be tuned by hand by data scientists and analysts.</p>
                                 <form  action="{% url 'visualize' %}">
                                 {% csrf_token %}
-                                    <label style="color: white;" class="" for="start_date">Start Date:</label>
-                                    <input class="" style="color: #395693;font-weight: bolder;" type="date" id="start_date" name="start_date">
-                                    <label style="color: white;"class="" for="end_date">End Date:</label>
-                                    <input class="" style="color: #395693;font-weight: bolder;" type="date" id="end_date" name="end_date">
-                                    <button style="background-color: white;color: #395693; border-color: aliceblue; text-shadow: 5pt; font-weight: bolder; font-size: 0.9rem;" type="submit" class="btn ml-3 text-center">Get Predictions </button>
+                                    <label style="color: #705555;" class="pb-5 pl-4" for="start_date">Start Date:</label>
+                                    <input class="" style="color: #705555;font-weight: bolder;" type="date" id="start_date" name="start_date">
+                                    <label style="color: #705555;"class="pb-5 pl-4" for="end_date">End Date:</label>
+                                    <input class="" style="color: #705555;font-weight: bolder;" type="date" id="end_date" name="end_date">
+                                    <button style="background-color: white;color: #705555; border-color: aliceblue; text-shadow: 5pt; font-weight: bolder; font-size: 0.9rem;" type="submit" class="btn ml-4 text-center">Get Predictions </button>
                                     
                                 </form>
 
@@ -124,7 +94,7 @@
                                     
                                         
                                 </div> -->
-                                <img class="pt-5 pl-3" src="{% static 'imgs/prophetOnlyLogo.png' %}" alt="" srcset="">
+                                <img class="pt-5 pl-3" src="{% static 'imgs/pOnlyLogo.png' %}" alt="" srcset="">
                             </div>
                     </div>
                 </div>
