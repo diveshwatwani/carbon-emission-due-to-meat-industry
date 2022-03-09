@@ -16,24 +16,18 @@ from fbprophet import Prophet
 import pickle
 
 def home(request):
-    world = pd.read_csv('carbonemission\dataset7.csv')
+    world = pd.read_csv('carbonemission\meatcattleworldco.csv')
     data = dict(
         type = 'choropleth',
-        # colorscale = ['#000000','#000000','#000000','#000000','#FF0000'],
-        colorscale=[[0, "rgb(166,206,227)"],
-                [0.25, "rgb(31,120,180)"],
-                [0.45, "rgb(178,223,138)"],
-                [0.65, "rgb(51,160,44)"],
-                [0.85, "rgb(251,154,153)"],
-                [1, "rgb(227,26,28)"]],
-       #marker_line_color='white',
-        reversescale = True,
+        colorscale='Reds',
+        # reversescale = True,
         locations = world['Area'],
         locationmode = "country names",
         z = world['Value'],
         text = world['Area'],
         colorbar = {'title' : 'CO2 Emission in Meat Industry'},
-        
+        # wscale=False
+        # autocolorscale=True
       ) 
 
     layout = dict(title = 'CO2 Emission in Meat Industry',margin={"r":35,"t":35,"l":35,"b":35},
@@ -174,21 +168,21 @@ def getPredictions(x,years):
     
 
 def getVisiualization(start,end):
-    
+
     combined_data=pd.read_csv('carbonemission\combined_data.csv')
     combined_data=combined_data.loc[(combined_data['Year']>=start)&(combined_data['Year']<=end)]
-    fig1 = px.bar(combined_data, x="Year", y="Emission Intensity", color='Item')
+    fig1 = px.bar(combined_data, x="Year", y="Emission Intensity", color='Item',width=930, height=580)
     plot_div1 = plot(fig1, output_type='div', include_plotlyjs=False)
-    fig2 = px.line(combined_data, x='Year', y='Emission Intensity', color='Item')
+    fig2 = px.line(combined_data, x='Year', y='Emission Intensity', color='Item',width=930, height=580)
     plot_div2 = plot(fig2, output_type='div', include_plotlyjs=False)
     x = combined_data['Year']
     y = combined_data['Item']
     z = combined_data['Emission Intensity']
-    fig3 = go.Figure(data=go.Heatmap(z=z, x=x, y=y, colorscale='Viridis'))
-    fig3.update_layout(title='Carbon Emission in Meat Industry', xaxis_nticks=36)
+    fig3 = go.Figure(data=go.Heatmap(z=z, x=x, y=y, colorscale='rdylgn'))
+    fig3.update_layout(title='Carbon Emission in Meat Industry', xaxis_nticks=36,height=560,width=930)
     plot_div3 = plot(fig3, output_type='div', include_plotlyjs=False)
 
-    fig4 = px.scatter(combined_data, y="Emission Intensity", x="Year", color="Item")
+    fig4 = px.scatter(combined_data, y="Emission Intensity", x="Year", color="Item",height=580,width=930)
     fig4.update_traces(marker_size=10)
     plot_div4 = plot(fig4, output_type='div', include_plotlyjs=False)
 
@@ -263,21 +257,21 @@ def com_res(request):
 
 # ARIMA visualize
 def A_getVisiualization(start,end):
-    
+
     combined_data=pd.read_csv('carbonemission\combined_data_arima.csv')
     combined_data=combined_data.loc[(combined_data['Year']>=start)&(combined_data['Year']<=end)]
-    fig1 = px.bar(combined_data, x="Year", y="Emission Intensity", color='Item')
+    fig1 = px.bar(combined_data, x="Year", y="Emission Intensity", color='Item',width=930, height=580)
     plot_div1 = plot(fig1, output_type='div', include_plotlyjs=False)
-    fig2 = px.line(combined_data, x='Year', y='Emission Intensity', color='Item')
+    fig2 = px.line(combined_data, x='Year', y='Emission Intensity', color='Item',width=930, height=580)
     plot_div2 = plot(fig2, output_type='div', include_plotlyjs=False)
     x = combined_data['Year']
     y = combined_data['Item']
     z = combined_data['Emission Intensity']
-    fig3 = go.Figure(data=go.Heatmap(z=z, x=x, y=y, colorscale='Viridis'))
-    fig3.update_layout(title='Carbon Emission in Meat Industry', xaxis_nticks=36)
+    fig3 = go.Figure(data=go.Heatmap(z=z, x=x, y=y, colorscale='rdylgn'))
+    fig3.update_layout(title='Carbon Emission in Meat Industry', xaxis_nticks=36,height=560,width=930)
     plot_div3 = plot(fig3, output_type='div', include_plotlyjs=False)
 
-    fig4 = px.scatter(combined_data, y="Emission Intensity", x="Year", color="Item")
+    fig4 = px.scatter(combined_data, y="Emission Intensity", x="Year", color="Item",height=580,width=930)
     fig4.update_traces(marker_size=10)
     plot_div4 = plot(fig4, output_type='div', include_plotlyjs=False)
 
@@ -296,21 +290,22 @@ def A_visualize(request):
 
 # NeuralProphet visualize
 def N_getVisiualization(start,end):
-    
+
     combined_data=pd.read_csv('carbonemission\combined_data_neural_prophet.csv')
-    combined_data=combined_data.loc[(combined_data['ds']>=start)&(combined_data['ds']<=end)]
-    fig1 = px.bar(combined_data,x='ds', y="yhat1", color='Item')
+    combined_data.rename(columns = {'ds' : 'Year', 'yhat1' : 'Emission Intensity'}, inplace = True)
+    combined_data=combined_data.loc[(combined_data['Year']>=start)&(combined_data['Year']<=end)]
+    fig1 = px.bar(combined_data, x="Year", y="Emission Intensity", color='Item',width=930, height=580)
     plot_div1 = plot(fig1, output_type='div', include_plotlyjs=False)
-    fig2 = px.line(combined_data, x='ds', y='yhat1', color='Item')
+    fig2 = px.line(combined_data, x='Year', y='Emission Intensity', color='Item',width=930, height=580)
     plot_div2 = plot(fig2, output_type='div', include_plotlyjs=False)
-    x = combined_data['ds']
+    x = combined_data['Year']
     y = combined_data['Item']
-    z = combined_data['yhat1']
-    fig3 = go.Figure(data=go.Heatmap(z=z, x=x, y=y, colorscale='Viridis'))
-    fig3.update_layout(title='Carbon Emission in Meat Industry', xaxis_nticks=36)
+    z = combined_data['Emission Intensity']
+    fig3 = go.Figure(data=go.Heatmap(z=z, x=x, y=y, colorscale='rdylgn'))
+    fig3.update_layout(title='Carbon Emission in Meat Industry', xaxis_nticks=36,height=560,width=930)
     plot_div3 = plot(fig3, output_type='div', include_plotlyjs=False)
 
-    fig4 = px.scatter(combined_data, y="yhat1", x="ds", color="Item")
+    fig4 = px.scatter(combined_data, y="Emission Intensity", x="Year", color="Item",height=580,width=930)
     fig4.update_traces(marker_size=10)
     plot_div4 = plot(fig4, output_type='div', include_plotlyjs=False)
 
