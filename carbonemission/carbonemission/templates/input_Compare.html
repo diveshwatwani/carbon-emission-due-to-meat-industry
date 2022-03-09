@@ -16,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/input_predict.css' %}">
+        <link rel="stylesheet" href="{% static 'css/input_compare.css' %}">
         <style>
             .navbar-nav .nav-item.active .nav-link,
             .navbar-nav .nav-item:hover .nav-link {
@@ -29,7 +29,7 @@
 
         <section class="navBarSection">
            <!-- --------------------NAVBAR--------------------- -->
-           <nav style="margin-bottom: 0px;" class="navbar navbar-expand-lg navbar-light shadow-5-strong container">
+           <nav style="border-bottom: 1px solid black;" class="navbar navbar-expand-lg navbar-light shadow-5-strong container">
             <a class="navbar-brand" href="/">Carbon Emission</a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleDemo02" aria-controls="navbarToggleDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,21 +65,21 @@
         </section>
         <!-- ################ nmain page ################# -->
         <section class="main_page">
-            <div class="container pt-5 pb-5 mb-5 mt-5">
-                <div class="row">
-                    <div class="col-lg-6 pt-5  mt-3 mb-2">
-                        <img src="{% static 'imgs/cow_carbon_emission.png' %}" width="110%" alt="" srcset="">
+            <div class="container pt-2 pb-5 mb-5 mt-2">
+                <div>
+                    <div class="container ml-3 text-center">
+                        <img width="50%" src="{% static 'imgs/Comparition.png' %}"  alt="" srcset="">
                     </div>
-                    <div class="col-lg-6 mt-2 ml-5 form-box">
-                        <div class="container-ds text-center">
-                            <h1 style="color: #638A80;" class="pt-2">Type of Meat Prediction</h1>
+                    <center><div class="form-box mt-4">
+                        <div class="container-ds">
+                            <h1 style="color: #544D4D;" class="pt-2 pl-5 pr-5">Type of Meat Prediction</h1>
                         </div>
-                        <div class="mt-3 pl-5" >
+                        <div class="mt-3 pt-2" >
                             <form class="container" action="{% url 'com_res' %}">
                                 {% csrf_token %}
                             <div class="row">
                                 <div class="col dropdown">
-                                    <p>Select Type of Item</p>
+                                    <p class="text-left">Select Type of Item</p>
                                     <select class="selectFun" name="typeOfItem">
                                         <option value="cereals">Cereals</option>
                                         <option value="MeatBuffalo">Meat Buffalo</option>
@@ -96,15 +96,15 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <p>Enter the no.of years</p>
+                                    <p class="text-left">Enter the no.of years</p>
                                     <input class="selectFun" type="number" name="years">
                                 </div>
                             </div>    
                             <br>
-                            <center><input style="background-color: #638A80;color: white;" class="btn mb-3" type="submit" value='Get Predictions'></center>
+                            <center><input style="background-color: #544D4D;color: white;" class="btn mb-3" type="submit" value='Get Predictions'></center>
                             </form>
                         </div>
-                    </div>
+                    </div></center>
                 </div>
             </div>
         </section>

@@ -16,7 +16,7 @@ from fbprophet import Prophet
 import pickle
 
 def home(request):
-    world = pd.read_csv('D:\Web Developemnt 2020\carbon-emission-meat-industry\carbonemission\carbonemission\dataset7.csv')
+    world = pd.read_csv('carbonemission\dataset7.csv')
     data = dict(
         type = 'choropleth',
         # colorscale = ['#000000','#000000','#000000','#000000','#FF0000'],
@@ -249,7 +249,7 @@ def com_res(request):
     actual=pd.DataFrame(actual)
     prophet=pd.DataFrame(prophet)
     model_neural=pd.DataFrame(model_neural)
-    img = plot({'data':[Scatter(x=result['Year'], y=result['Value'],mode='lines+markers', name='Arima Predicted Data', opacity=0.8, marker_color='black'),Scatter(x=actual['Year'], y=actual['Value'],mode='lines+markers', name='Actual Data', opacity=0.8, marker_color='red'),Scatter(x=model_neural['ds'], y=model_neural['yhat1'],mode='lines+markers', name='Neural', opacity=0.8, marker_color='yellow'),Scatter(x=prophet['ds'], y=prophet['yhat'],mode='lines+markers', name='Prophet Predicted Data', opacity=0.8, marker_color='blue')],'layout': {'title': 'title', 'xaxis': {'title': 'Year'}, 'yaxis': {'title': 'Emission Intensity'},'height':800}}, output_type='div')
+    img = plot({'data':[Scatter(x=result['Year'], y=result['Value'],mode='lines+markers', name='Arima Predicted Data', opacity=0.8, marker_color='black'),Scatter(x=actual['Year'], y=actual['Value'],mode='lines+markers', name='Actual Data', opacity=0.8, marker_color='red'),Scatter(x=model_neural['ds'], y=model_neural['yhat1'],mode='lines+markers', name='Neural', opacity=0.8, marker_color='yellow'),Scatter(x=prophet['ds'], y=prophet['yhat'],mode='lines+markers', name='Prophet Predicted Data', opacity=0.8, marker_color='blue')],'layout': {'xaxis': {'title': 'Year'}, 'yaxis': {'title': 'Emission Intensity'},'margin':{'t':15,'b':15},'height':650}}, output_type='div')
     
     result['Year'] = result['Year'].dt.strftime('%Y-%m-%d')
     result['actualdata']=actual['Value']

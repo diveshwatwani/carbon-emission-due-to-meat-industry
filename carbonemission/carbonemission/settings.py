@@ -57,7 +57,7 @@ ROOT_URLCONF = 'carbonemission.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:/Web Developemnt 2020/carbon-emission-meat-industry/carbonemission/carbonemission/templates'],
+        'DIRS': ['carbonemission/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
