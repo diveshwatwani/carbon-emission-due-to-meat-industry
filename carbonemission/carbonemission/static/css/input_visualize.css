@@ -19,21 +19,21 @@ body
   {
       padding-left: 200px;
   }
-  .textLabel{
+  /* .textLabel{
       font-size: 20px;
       font-weight: bolder;
       text-align: left;
       padding-top: 25px;
-  }
+  } */
 
   
-  input[type=date] {
-    width: 100%;
+  /* input[type=date] {
+    width: 20%;
     margin-bottom: 20px;
     border: 1px solid rgb(2, 2, 2);
     border-radius: 3px;
     padding: 5px;
-  }
+  } */
 
 /* ################ FOOTER ################# */
 body {
