@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'carbonemissiontest'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6DD3BAB138534BBC9F394C4643B3BE1F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_98CA0034E8F04845B2D4EBD648255F5B }}
